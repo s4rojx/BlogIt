@@ -382,12 +382,6 @@ Contributions are welcome! Please follow these steps:
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Support
-
-### Documentation
-- [Setup & Deployment Guide](SETUP_DEPLOYMENT.md)
-- [UI Styling Documentation](UI_STYLE_GUIDE.md)
-- [Security Fixes](SECURITY_FIXES.md)
 
 ### Getting Help
 - Check GitHub Issues for common problems
@@ -416,6 +410,6 @@ For questions or support:
 
 **Version**: 1.0.0
 **Status**: Production Ready
-**Last Updated**: 2024
+**Last Updated**: 2026
 
 **Enjoy blogging and connecting with BlogIt!**
