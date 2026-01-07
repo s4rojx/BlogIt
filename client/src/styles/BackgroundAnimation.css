@@ -1,0 +1,95 @@
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background: var(--bg);
+    /* Ensure base background is set */
+}
+
+/* 
+  The Gradient Glow Layer 
+  Intensified to match the user's reference:
+  - Stronger opacity
+  - "Orange inside it" (centered/top glow)
+  - Glass-like diffusion
+*/
+.background-gradient {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 90vh;
+    /* Strong radial gradient with the brand orange */
+    background: radial-gradient(circle at 50% 30%,
+            rgba(249, 115, 22, 0.25) 0%,
+            /* Orange glow center */
+            rgba(234, 88, 12, 0.15) 30%,
+            /* Darker orange mid */
+            rgba(255, 255, 255, 0) 70%
+            /* Fade out */
+        );
+    filter: blur(100px);
+    /* Heavy blur for the "glass" diffusion */
+    opacity: 0.8;
+    animation: pulseGlow 8s ease-in-out infinite alternate;
+}
+
+body[data-theme='dark'] .background-gradient {
+    /* In dark mode, we can afford a bit more opacity for visibility against black */
+    background: radial-gradient(circle at 50% 30%,
+            rgba(249, 115, 22, 0.22) 0%,
+            rgba(234, 88, 12, 0.12) 40%,
+            rgba(0, 0, 0, 0) 70%);
+    opacity: 0.9;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--fg-muted);
+    opacity: 0.15;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(110vh) translateX(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.15;
+        transform: translateY(90vh) translateX(-10px);
+    }
+
+    50% {
+        transform: translateY(50vh) translateX(10px);
+    }
+
+    80% {
+        opacity: 0.15;
+    }
+
+    100% {
+        transform: translateY(-10vh) translateX(0);
+        opacity: 0;
+    }
+}
+
+@keyframes pulseGlow {
+    0% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1.05);
+        opacity: 0.9;
+    }
+}
